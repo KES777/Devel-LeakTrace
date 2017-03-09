@@ -4,7 +4,7 @@ use Test::More tests => 11;
 
 sub output ($) {
     my $code = shift;
-    `$^X -MDevel::LeakTrace -e'$code' 2>&1`
+    `$^X -Iblib/arch -Iblib/lib -MDevel::LeakTrace -e'$code' 2>&1`
 }
 
 is( output '1;', '', 'no statements = no leak' );
